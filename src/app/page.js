@@ -16,16 +16,29 @@ async function getPosts() {
 }
 
 function Card({ date, title, description, imgSrc, id }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleReadMoreClick = () => {
+    if (isExpanded) {
+      // Navigate to the single post page
+      window.location.href = `/posts/${id}`;
+    } else {
+      setIsExpanded(true);
+    }
+  };
+
   return (
     <div className="max-w-[90%] w-[800px] p-2 mx-[55px] my-3 bg-white px-[100px]">
       <div className="p-2">
         <Image src={imgSrc} alt={title} width={750} height={150} />
         <p className="text-md text-gray-500">{date}</p>
         <h2 className="mt-2 text-xl font-bold text-red-500">{title}</h2>
-        <p className="mt-2 w-[100%] text-gray-700">{description}</p>
-        <Link href={`pages/posts/${id}`} passHref legacyBehavior>
-          <a className="mt-4 inline-block text-red-500 underline">READ MORE</a>
-        </Link>
+        <p className={`mt-2 w-[100%] text-gray-700 ${!isExpanded ? 'truncate' : ''}`} style={{ overflow: isExpanded ? 'visible' : 'hidden' }}>
+          {description}
+        </p>
+        <button onClick={handleReadMoreClick} className="mt-4 inline-block text-red-500 underline">
+          READ MORE
+        </button>
       </div>
     </div>
   );
