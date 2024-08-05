@@ -1,4 +1,7 @@
 "use client"
+import { BsMedium } from "react-icons/bs";
+import { AiFillLinkedin } from "react-icons/ai";
+import { AiOutlineTwitter } from "react-icons/ai";
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
@@ -78,13 +81,13 @@ export default function Home() {
               </p>
               <div className="mt-8 flex space-x-4">
                 <div>
-                  <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium bg-cyan-500 text-white">Twitter</a>
+                  <a href="https://x.com/i/flow/login" target='_blank' className="inline-flex items-center px-4 py-2 text-sm font-medium bg-cyan-500 text-white"><AiOutlineTwitter />Twitter</a>
                 </div>
                 <div>
-                  <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium bg-cyan-800 text-white">Medium</a>
+                  <a href="https://www.linkedin.com/login" target='_blank' className="inline-flex items-center px-4 py-2 text-sm font-medium bg-cyan-800 text-white"><AiFillLinkedin />Linkedin</a>
                 </div>
                 <div>
-                  <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium bg-slate-950 text-white">LinkedIn</a>
+                  <a href="https://medium.com/m/signin" target='_blank' className="inline-flex items-center px-4 py-2 text-sm font-medium bg-slate-950 text-white"><BsMedium />Medium</a>
                 </div>
               </div>
             </div>
