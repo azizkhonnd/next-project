@@ -3,7 +3,6 @@ import { BsMedium } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import sadZeppelins from './sad-zeppelins.svg';
 import mainImg from './main-img.png';
@@ -20,8 +19,7 @@ function Card({ date, title, description, imgSrc, id }) {
 
   const handleReadMoreClick = () => {
     if (isExpanded) {
-      // Navigate to the single post page
-      window.location.href = `/posts/${id}`;
+      window.location.href = `pages/[prudctid]/${id}`;
     } else {
       setIsExpanded(true);
     }
@@ -110,7 +108,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex justify-center items-center h-screen my-[800px]">
+        <section className="flex justify-center items-center h-screen my-[440px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             {posts.slice(0, visiblePosts).map((post) => (
               <Card
@@ -131,6 +129,7 @@ export default function Home() {
             onClick={showMorePosts}
             className="px-6 py-2 bg-red-500 text-white font-medium rounded mx-[500px]"
           >
+
             Show More
           </button>
         </div>
